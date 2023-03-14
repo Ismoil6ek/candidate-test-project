@@ -1,4 +1,12 @@
-import { TextField, Dialog, Button } from "@mui/material";
+import {
+  TextField,
+  OutlinedInput,
+  InputAdornment,
+  Dialog,
+  Button,
+  InputLabel,
+  FormControl,
+} from "@mui/material";
 import { FormEvent, useRef, useState } from "react";
 import { useAppContext } from "../../context";
 import styles from "./actions.module.scss";
@@ -10,7 +18,7 @@ const Actions = () => {
   const aboutRef = useRef<HTMLInputElement>(null);
   const categoryRef = useRef<HTMLInputElement>(null);
   const priceRef = useRef<HTMLInputElement>(null);
-  const { setTriggerFetch } = useAppContext();
+  const { setTriggerFetch, search, setSearch } = useAppContext();
 
   const handleClose = () => {
     setOpen(false);
@@ -44,15 +52,31 @@ const Actions = () => {
   }
 
   return (
-    <>
-      <div className={styles.actions_wrapper}>
-        <input
-          className={styles.search_input}
-          placeholder="Type in here to search..."
+    <div className={styles.actions_wrapper}>
+      <div className={styles.title}>Products</div>
+
+      <div className={styles.actions_block}>
+        <TextField
+          id="outlined-basic"
+          label="Type in here to search..."
+          variant="standard"
+          size="small"
+          fullWidth
+          type="search"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          className={styles.input}
         />
-        <button className={styles.create_button} onClick={handleOpen}>
+
+        <Button
+          type="submit"
+          variant="contained"
+          color="success"
+          onClick={handleOpen}
+          className={styles.button}
+        >
           Add new
-        </button>
+        </Button>
       </div>
 
       <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
@@ -79,13 +103,21 @@ const Actions = () => {
               inputRef={categoryRef}
               required
             />
-            <TextField
-              id="outlined-multiline-flexible"
-              label="Price"
-              type="number"
-              inputRef={priceRef}
-              required
-            />
+            <FormControl variant="outlined" required>
+              <InputLabel htmlFor="outlined-adornment-password">
+                Price
+              </InputLabel>
+              <OutlinedInput
+                id="outlined-multiline-flexible"
+                label="Price"
+                startAdornment={
+                  <InputAdornment position="start">$</InputAdornment>
+                }
+                type="number"
+                inputRef={priceRef}
+                required
+              />
+            </FormControl>
             <TextField
               id="outlined-multiline-flexible"
               label="Description"
@@ -96,7 +128,7 @@ const Actions = () => {
           </div>
 
           <div className={styles.actions}>
-            <Button variant="outlined" fullWidth>
+            <Button variant="outlined" fullWidth onClick={handleClose}>
               Cancel
             </Button>
             <Button type="submit" variant="contained" color="success" fullWidth>
@@ -105,7 +137,7 @@ const Actions = () => {
           </div>
         </form>
       </Dialog>
-    </>
+    </div>
   );
 };
 

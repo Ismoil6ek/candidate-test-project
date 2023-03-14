@@ -1,3 +1,31 @@
+.actions_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+        font-size: 48px;
+        font-weight: 600;
+        color: #2c3333;
+    }
+
+    .actions_block {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .input {
+            max-width: 300px;
+        }
+
+        .button {
+            width: max-content;
+            white-space: nowrap;
+            padding-inline: 20px;
+        }
+    }
+}
+
 .dialog_block {
     padding: 24px;
     max-width: 100%;
