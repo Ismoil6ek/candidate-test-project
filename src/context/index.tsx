@@ -1,5 +1,6 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import { categories, context, product } from "../data/interface";
+import { PER_PAGE } from "../pages/Home";
 
 const DEFAULT_VALUES = {
   products: [],
@@ -11,6 +12,11 @@ const DEFAULT_VALUES = {
   activeCategory: "all",
   setActiveCategory: () => {},
   setTriggerFetch: () => {},
+  search: "",
+  setSearch: () => {},
+  editID: null,
+  setEditID: () => {},
+  setPage: () => {},
 };
 
 const GlobalContext = createContext<context>(DEFAULT_VALUES);
@@ -24,12 +30,16 @@ const GlobalContextProvider = ({ children }: { children: any }) => {
   });
   const [triggerFetch, setTriggerFetch] = useState<number>(0);
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [search, setSearch] = useState<string>("");
+  const [editID, setEditID] = useState<number | null>(null);
+  const [page, setPage] = useState<number>(0);
 
   function fetchProducts() {
     fetch("http://localhost:2288/products")
       .then((res) => res.json())
       .then((result) => {
         setProducts(result);
+        setActiveCategory("all");
         let temp: categories = { all: result.length };
         result.forEach(({ category }: product) => {
           temp[category] >= 1 ? ++temp[category] : (temp[category] = 1);
@@ -38,19 +48,41 @@ const GlobalContextProvider = ({ children }: { children: any }) => {
       });
   }
 
+  // fetcher
   useEffect(() => {
     fetchProducts();
   }, [triggerFetch]);
 
+  // category
   useEffect(() => {
-    if (activeCategory === "all") {
-      setFiltered(products);
-    } else {
-      setFiltered(
-        products.filter(({ category }) => category === activeCategory)
-      );
-    }
+    setFiltered(() =>
+      products.filter(({ category }) =>
+        activeCategory === "all" ? true : category === activeCategory
+      )
+    );
   }, [products, activeCategory]);
+
+  // search
+  useEffect(() => {
+    setActiveCategory("all");
+    setFiltered(() =>
+      products.filter(
+        ({ name, description }) =>
+          (search.length > 0 &&
+            name.toLowerCase().includes(search.toLowerCase())) ||
+          description.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, products]);
+
+  // pagination
+  useEffect(() => {
+    setFiltered(
+      products.filter(
+        (_, index) => index >= page * PER_PAGE && index < (page + 1) * PER_PAGE
+      )
+    );
+  }, [page, products]);
 
   return (
     <GlobalContext.Provider
@@ -62,6 +94,11 @@ const GlobalContextProvider = ({ children }: { children: any }) => {
         activeCategory,
         setActiveCategory,
         setTriggerFetch,
+        search,
+        setSearch,
+        editID,
+        setEditID,
+        setPage,
       }}
     >
       {children}

@@ -20,4 +20,9 @@ export interface context {
   activeCategory: string;
   setActiveCategory: React.Dispatch<React.SetStateAction<string>>;
   setTriggerFetch: React.Dispatch<React.SetStateAction<number>>;
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  editID: number | null;
+  setEditID: React.Dispatch<React.SetStateAction<number | null>>;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
