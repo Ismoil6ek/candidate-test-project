@@ -1,48 +1,46 @@
-# candidate-test-project
+# Getting Started with Create React App
 
-## First Steps
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-1. Initialize your react (or Next.js) application in the root folder
-2. Install JSON server
-```npm i -g json-server```
-3. Run JSON server
-```json-server db.json --port 2288```
+## Available Scripts
 
+In the project directory, you can run:
 
-## Project Description
+### `npm start`
 
-The goal of this project is to assess your React development skills, as well as your ability to work with a basic REST server. You will be building a web application that allows users to view, add, edit, and delete a list of products. The list of products will be stored in a JSON file and accessed through a JSON server. Users should be able to perform CRUD operations on the list of products.
-You are free to use any UI tools you want.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Requirements
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-- Use React to build the web application.
-- Use a JSON server to store and access the list of products.
-- Display the list of products on the page.
-- Implement functionality to add, edit, and delete products.
-- Style visually your project.
+### `npm test`
 
-##### Would be as a plus
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- Ability to filter products by category
-- Pagination implementation
-- Search products
-- Good-looking design
-- Paying attention to small details
+### `npm run build`
 
-#### Bonus Points
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- A working web application that meets the requirements.
-- A link to the source code hosted on a public code repository (e.g. GitHub).
-- A README file with instructions on how to run the web application and any additional notes.
-- Timeline:
-- This project should not take more than 4 days to complete.
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Assessment
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-The project will be assessed based on the following criteria:
+### `npm run eject`
 
-- Implementation of the requirements.
-- Code organization and maintainability.
-- Use of best practices and design patterns.
-- Code readability and documentation.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).

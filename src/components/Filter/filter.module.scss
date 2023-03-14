@@ -1,0 +1,33 @@
+.categories_wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .category_chip {
+        padding: 4px 8px;
+
+        font-weight: 600;
+        color: #00223f;
+        text-decoration: none;
+        text-transform: capitalize;
+
+        background-color: transparent;
+        border: 2px solid #144272;
+        border-radius: 6px;
+        transition: all 0.1s ease;
+
+        &:hover {
+            border-color: #205295;
+            color: #e3f2ff;
+            background-color: #205295;
+        }
+
+        &[data-active="true"] {
+            pointer-events: none;
+            border-color: #205295;
+            color: #e3f2ff;
+            background-color: #205295;
+        }
+    }
+}
