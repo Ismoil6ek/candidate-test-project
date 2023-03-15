@@ -3,9 +3,7 @@
 <div align="center"> 
   <h3 align="center">CRUD Products</h3>
 
-  <p align="center">  
-    <a href="https://lla-commerce.netlify.app">View Demo</a>
-    ·
+  <p align="center">
     <a href="https://t.me/ismoil6ek">Report Bug</a> 
   </p>
 </div>
@@ -14,7 +12,7 @@
 
 ## About The Project
 
-[![Product Screenshot][product-screenshot]](https://lla-commerce.netlify.app)
+![Product Screenshot][product-screenshot]
 
 Task from Llama commerce
 
