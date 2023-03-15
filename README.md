@@ -1,18 +1,14 @@
- <!-- PROJECT LOGO -->
-<br />
-<div align="center"> 
-  <h3 align="center">CRUD Products</h3>
+<!-- ABOUT THE PROJECT -->
 
+## CRUD Project
+
+![Product Screenshot][product-screenshot]
+
+<div align="center"> 
   <p align="center">
     <a href="https://t.me/ismoil6ek">Report Bug</a> 
   </p>
 </div>
- 
-<!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-![Product Screenshot][product-screenshot]
 
 Task from Llama commerce
 
