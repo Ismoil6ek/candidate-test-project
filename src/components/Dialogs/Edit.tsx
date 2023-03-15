@@ -10,9 +10,10 @@ import {
 import { useAppContext } from "../../context";
 import { ChangeEvent, useEffect, useState, FormEvent } from "react";
 import { product } from "../../data/interface";
-import styles from "./editDailog.module.scss";
+import styles from "./styles.module.scss";
+import { base_url } from "../../data";
 
-const EditDialog = () => {
+const Edit = () => {
   const { editID, setEditID, products, setTriggerFetch } = useAppContext();
   const [product, setProduct] = useState<product>({
     id: 0,
@@ -34,7 +35,7 @@ const EditDialog = () => {
   async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    await fetch(`http://localhost:2288/products/${editID}`, {
+    await fetch(`${base_url}/products/${editID}`, {
       headers: {
         Accept: "application/json",
         "Content-type": "application/json",
@@ -131,4 +132,4 @@ const EditDialog = () => {
   );
 };
 
-export default EditDialog;
+export default Edit;

@@ -1,6 +1,7 @@
-import { Actions, EditDialog, Filter, Products } from "../components";
+import { Actions, Filter, Products } from "../components";
 import { Pagination } from "@mui/material";
 import { useAppContext } from "../context";
+import { Edit } from "../components/Dialogs";
 import styles from "./products.module.scss";
 
 export const PER_PAGE = 10;
@@ -13,7 +14,7 @@ const Home = () => {
       <Actions />
       <Filter />
       <Products />
-      <EditDialog />
+      <Edit />
 
       {activeCategory === "all" && search.length === 0 ? (
         <Pagination

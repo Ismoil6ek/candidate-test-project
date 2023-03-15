@@ -1,6 +1,7 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import { categories, context, product } from "../data/interface";
 import { PER_PAGE } from "../pages/Home";
+import { base_url } from "../data";
 
 const DEFAULT_VALUES = {
   products: [],
@@ -35,7 +36,7 @@ const GlobalContextProvider = ({ children }: { children: any }) => {
   const [page, setPage] = useState<number>(0);
 
   function fetchProducts() {
-    fetch("http://localhost:2288/products")
+    fetch(`${base_url}/products`)
       .then((res) => res.json())
       .then((result) => {
         setProducts(result);

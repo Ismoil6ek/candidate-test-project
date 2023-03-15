@@ -9,100 +9,20 @@
       "imageSrc": "https://cdn.shopify.com/s/files/1/0718/4754/3105/products/e7a2b189514d134630552681e4c8bc07.jpg?v=1677779725"
     },
     {
+      "id": 2,
+      "name": "ADIDAS | KID'S STAN SMITH",
+      "description": "The Stan Smith owned the tennis court in the '70s. Today it runs the streets with the same clean, classic style. These kids' shoes preserve the iconic look of the original, made in leather with punched 3-Stripes, heel and tongue logos and lightweight step-in cushioning.",
+      "price": 15.99,
+      "category": "shoes",
+      "imageSrc": "https://cdn.shopify.com/s/files/1/0718/4754/3105/products/7883dc186e15bf29dad696e1e989e914.jpg?v=1677779862"
+    },
+    {
       "id": 3,
       "name": "Radlee Dress",
       "description": "Get some compliments. The Perry is slim fitting throughout with a lettuce hem at the sleeve opening and skirt hem. It's soft and stretchy for an extra comfortable feel.",
       "price": 23.99,
       "category": "dress",
       "imageSrc": null
-    },
-    {
-      "name": "Mike Tyson",
-      "description": "Best Boxer of all time",
-      "price": "0",
-      "category": "Boxer",
-      "imageSrc": "https://boxrec.com/images/thumb/9/94/MikeTysonHeadshot2.jpg/200px-MikeTysonHeadshot2.jpg",
-      "id": 4
-    },
-    {
-      "name": "sacascasc",
-      "description": "65cscascsdvsdvsdvsdvsdv",
-      "price": "9851651",
-      "category": "sacascasc",
-      "imageSrc": "ascascasc",
-      "id": 5
-    },
-    {
-      "name": "Sed sed ipsum facilis tenetur.",
-      "description": "Quos saepe autem ab.",
-      "price": "53",
-      "category": "vel et et.",
-      "imageSrc": "Aut magnam atque quo.",
-      "id": 6
-    },
-    {
-      "name": "Aut qui sequi non labore iure.",
-      "description": "Aut voluptatem amet odio eius dolorem numquam laborum earum.",
-      "price": "56",
-      "category": "quam consequatur error qui sit pariatur.",
-      "imageSrc": "Nihil qui numquam omnis dolore necessitatibus.",
-      "id": 7
-    },
-    {
-      "id": 8,
-      "name": "PUMA | SUEDE CLASSIC REGAL",
-      "description": "First introduced in 1968, the Puma Suede Classic is Puma's most epic sneaker with its athletic inspired design and smooth suede. The Puma Suede Classic Regal Red/White is constructed with a suede upper and contrasting low profile rubber sole, and fat laces, the classic continues to make its mark on the streets today.",
-      "price": 10.99,
-      "category": "shoes",
-      "imageSrc": "https://cdn.shopify.com/s/files/1/0718/4754/3105/products/e7a2b189514d134630552681e4c8bc07.jpg?v=1677779725"
-    },
-    {
-      "id": 9,
-      "name": "Radlee Dress",
-      "description": "Get some compliments. The Perry is slim fitting throughout with a lettuce hem at the sleeve opening and skirt hem. It's soft and stretchy for an extra comfortable feel.",
-      "price": 23.99,
-      "category": "dress",
-      "imageSrc": null
-    },
-    {
-      "name": "cascasc",
-      "description": "ascascasc",
-      "price": "8964",
-      "category": "sacascasc",
-      "imageSrc": "ascasc",
-      "id": 10
-    },
-    {
-      "name": "sacascasc",
-      "description": "65cscascsdvsdvsdvsdvsdv",
-      "price": "9851651",
-      "category": "sacascasc",
-      "imageSrc": "ascascasc",
-      "id": 11
-    },
-    {
-      "name": "Sed sed ipsum facilis tenetur.",
-      "description": "Quos saepe autem ab.",
-      "price": "53",
-      "category": "vel et et.",
-      "imageSrc": "Aut magnam atque quo.",
-      "id": 12
-    },
-    {
-      "name": "Aut qui sequi non labore iure.",
-      "description": "Aut voluptatem amet odio eius dolorem numquam laborum earum.",
-      "price": "56",
-      "category": "quam consequatur error qui sit pariatur.",
-      "imageSrc": "Nihil qui numquam omnis dolore necessitatibus.",
-      "id": 13
-    },
-    {
-      "name": "ascacascas",
-      "description": "sacascasc",
-      "price": "651651",
-      "category": "casscascacas",
-      "imageSrc": "ascascasc",
-      "id": 14
     }
   ]
 }
