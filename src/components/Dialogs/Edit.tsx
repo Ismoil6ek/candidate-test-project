@@ -25,7 +25,7 @@ const Edit = () => {
 
   useEffect(() => {
     setProduct(products.find(({ id }) => id === editID)!);
-  }, [editID]);
+  }, [editID, products]);
 
   function handleClose() {
     setEditID(null);
