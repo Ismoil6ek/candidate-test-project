@@ -9,12 +9,12 @@ import {
 } from "@mui/material";
 import { useAppContext } from "../../context";
 import { ChangeEvent, useEffect, useState, FormEvent } from "react";
-import { product } from "../../data/interface";
+import { IProduct } from "../../data/interface";
 import styles from "./styles.module.scss";
 
 const Edit = () => {
   const { editID, setEditID, products, setProducts } = useAppContext();
-  const [product, setProduct] = useState<product>({
+  const [product, setProduct] = useState<IProduct>({
     id: 0,
     name: "",
     description: "",
@@ -40,7 +40,7 @@ const Edit = () => {
     );
 
     // Update the product list with the edited product
-    const updatedProducts = storedProducts.map((item: product) =>
+    const updatedProducts = storedProducts.map((item: IProduct) =>
       item.id === editID ? { ...item, ...product } : item
     );
 

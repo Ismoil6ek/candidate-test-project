@@ -1,4 +1,4 @@
-export interface product {
+export interface IProduct {
   id: number;
   name: string;
   description: string;
@@ -7,19 +7,19 @@ export interface product {
   imageSrc: null | string;
 }
 
-export interface categories {
+export interface ICategories {
   all: number;
   [key: string]: number;
 }
 
 export interface context {
-  products: product[];
-  filtered: product[];
-  categories: categories;
-  setCategories: React.Dispatch<React.SetStateAction<categories>>;
+  products: IProduct[];
+  filtered: IProduct[];
+  categories: ICategories;
+  setCategories: React.Dispatch<React.SetStateAction<ICategories>>;
   activeCategory: string;
   setActiveCategory: React.Dispatch<React.SetStateAction<string>>;
-  setProducts: React.Dispatch<React.SetStateAction<product[]>>;
+  setProducts: React.Dispatch<React.SetStateAction<IProduct[]>>;
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   editID: number | null;
