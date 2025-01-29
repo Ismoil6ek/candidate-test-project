@@ -11,10 +11,9 @@ import { useAppContext } from "../../context";
 import { ChangeEvent, useEffect, useState, FormEvent } from "react";
 import { product } from "../../data/interface";
 import styles from "./styles.module.scss";
-import { base_url } from "../../data";
 
 const Edit = () => {
-  const { editID, setEditID, products, setTriggerFetch } = useAppContext();
+  const { editID, setEditID, products, setProducts } = useAppContext();
   const [product, setProduct] = useState<product>({
     id: 0,
     name: "",
@@ -35,17 +34,23 @@ const Edit = () => {
   async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    await fetch(`${base_url}/products/${editID}`, {
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-      method: "PUT",
-      body: JSON.stringify(product),
-    });
+    // Get existing products from localStorage
+    const storedProducts = JSON.parse(
+      localStorage.getItem("products_data") || "[]"
+    );
+
+    // Update the product list with the edited product
+    const updatedProducts = storedProducts.map((item: product) =>
+      item.id === editID ? { ...item, ...product } : item
+    );
+
+    // Save updated products to localStorage
+    localStorage.setItem("products_data", JSON.stringify(updatedProducts));
+
+    // Update global state to trigger re-render
+    setProducts(updatedProducts);
 
     handleClose();
-    setTriggerFetch(Math.random());
   }
 
   function handleChange(

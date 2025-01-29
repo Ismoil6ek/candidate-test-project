@@ -1,5 +1,6 @@
-import { Actions, Filter, Products } from "../components";
 import { Pagination } from "@mui/material";
+
+import { Actions, Filter, Products } from "../components";
 import { useAppContext } from "../context";
 import { Edit } from "../components/Dialogs";
 import styles from "./products.module.scss";
@@ -15,8 +16,7 @@ const Home = () => {
       <Filter />
       <Products />
       <Edit />
-
-      {activeCategory === "all" && search.length === 0 ? (
+      {activeCategory === "all" && !search.length ? (
         <Pagination
           count={Math.ceil(products.length / PER_PAGE)}
           onChange={(_, page) => setPage(page - 1)}

@@ -1,6 +1,5 @@
 import { Dialog, Button } from "@mui/material";
 import { useAppContext } from "../../context";
-import { base_url } from "../../data";
 import styles from "./styles.module.scss";
 
 interface deleteProps {
@@ -9,15 +8,25 @@ interface deleteProps {
 }
 
 const Delete = ({ deleteID, setDeleteID }: deleteProps) => {
-  const { filtered, setTriggerFetch } = useAppContext();
+  const { filtered, setProducts } = useAppContext();
 
   async function handleDelete() {
-    await fetch(`${base_url}/products/${deleteID}`, {
-      method: "DELETE",
-    });
+    // Get existing products from localStorage
+    const storedProducts = JSON.parse(
+      localStorage.getItem("products_data") || "[]"
+    );
 
+    // Filter out the deleted product
+    const updatedProducts = storedProducts.filter(
+      (product: { id: number }) => product.id !== deleteID
+    );
+
+    // Update localStorage
+    localStorage.setItem("products_data", JSON.stringify(updatedProducts));
+
+    // Update global state to trigger a re-render
+    setProducts(updatedProducts);
     setDeleteID(null);
-    setTriggerFetch(Math.random());
   }
 
   return (

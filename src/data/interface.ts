@@ -19,7 +19,7 @@ export interface context {
   setCategories: React.Dispatch<React.SetStateAction<categories>>;
   activeCategory: string;
   setActiveCategory: React.Dispatch<React.SetStateAction<string>>;
-  setTriggerFetch: React.Dispatch<React.SetStateAction<number>>;
+  setProducts: React.Dispatch<React.SetStateAction<product[]>>;
   search: string;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
   editID: number | null;

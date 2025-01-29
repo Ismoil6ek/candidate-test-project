@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { useAppContext } from "../../context";
 import styles from "./styles.module.scss";
-import { base_url } from "../../data";
 
 const Create = ({
   open,
@@ -19,7 +18,7 @@ const Create = ({
   open: boolean;
   setOpen: (newValue: boolean) => void;
 }) => {
-  const { setTriggerFetch } = useAppContext();
+  const { setProducts } = useAppContext();
   const nameRef = useRef<HTMLInputElement>(null);
   const imageRef = useRef<HTMLInputElement>(null);
   const aboutRef = useRef<HTMLInputElement>(null);
@@ -28,31 +27,34 @@ const Create = ({
 
   async function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const body = {
-      name: nameRef.current?.value,
-      description: aboutRef.current?.value,
-      price: priceRef.current?.value,
-      category: categoryRef.current?.value?.toLowerCase(),
-      imageSrc: imageRef.current?.value,
+
+    // Get existing products from localStorage
+    const storedProducts = JSON.parse(
+      localStorage.getItem("products_data") || "[]"
+    );
+
+    const newProduct = {
+      id: Date.now(), // Unique ID for the product
+      name: nameRef.current?.value || "",
+      description: aboutRef.current?.value || "",
+      price: parseFloat(priceRef.current?.value || "0"),
+      category: categoryRef.current?.value?.toLowerCase() || "uncategorized",
+      imageSrc: imageRef.current?.value || "",
     };
 
-    await fetch(`${base_url}/products`, {
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(body),
-    });
+    // Update localStorage
+    const updatedProducts = [...storedProducts, newProduct];
+    localStorage.setItem("products_data", JSON.stringify(updatedProducts));
+
+    // Update global state to trigger a re-render
+    setProducts(updatedProducts);
 
     setOpen(false);
-    setTriggerFetch(Math.random());
   }
 
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
       <form className={styles.dialog_block} onSubmit={handleFormSubmit}>
